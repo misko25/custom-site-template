@@ -8,18 +8,18 @@ echo " * Custom site template provisioner ${VVV_SITE_NAME} - downloads and insta
 # fetch the first host as the primary domain. If none is available, generate a default using the site name
 DOMAIN=$(get_primary_host "${VVV_SITE_NAME}".test)
 SITE_TITLE=$(get_config_value 'site_title' "${DOMAIN}")
-WP_VERSION=$(get_config_value 'wp_version' 'latest')
-WP_LOCALE=$(get_config_value 'locale' 'en_US')
-WP_TYPE=$(get_config_value 'wp_type' "single")
-DB_NAME=$(get_config_value 'db_name' "${VVV_SITE_NAME}")
-DB_NAME=${DB_NAME//[\\\/\.\<\>\:\"\'\|\?\!\*]/}
+#WP_VERSION=$(get_config_value 'wp_version' 'latest')
+#WP_LOCALE=$(get_config_value 'locale' 'en_US')
+#WP_TYPE=$(get_config_value 'wp_type' "single")
+#DB_NAME=$(get_config_value 'db_name' "${VVV_SITE_NAME}")
+#DB_NAME=${DB_NAME//[\\\/\.\<\>\:\"\'\|\?\!\*]/}
 
 # Make a database, if we don't already have one
-echo -e " * Creating database '${DB_NAME}' (if it's not already there)"
-mysql -u root --password=root -e "CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`"
-echo -e " * Granting the wp user priviledges to the '${DB_NAME}' database"
-mysql -u root --password=root -e "GRANT ALL PRIVILEGES ON \`${DB_NAME}\`.* TO wp@localhost IDENTIFIED BY 'wp';"
-echo -e " * DB operations done."
+#echo -e " * Creating database '${DB_NAME}' (if it's not already there)"
+#mysql -u root --password=root -e "CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`"
+#echo -e " * Granting the wp user priviledges to the '${DB_NAME}' database"
+#mysql -u root --password=root -e "GRANT ALL PRIVILEGES ON \`${DB_NAME}\`.* TO wp@localhost IDENTIFIED BY 'wp';"
+#echo -e " * DB operations done."
 
 
 echo " * Setting up the log subfolder for Nginx logs"
